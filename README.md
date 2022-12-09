@@ -1,20 +1,29 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+The dataset bodymeasurements.csv contains body measurements of 424 persons aged between 18 to 40 years old, which were collected in a study. The aim of the study was to determine a model that can be used to explain the body height. The following variables have been collected:
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+* Height Body height (in cm)
+* Chest Chest circumference (in cm)
+* Belly Belly circumference (in cm)
+* Biceps Biceps circumference (in cm)
+* Knee Knee circumference (in cm)
+* Ankle Ankle circumference (in cm)
+* Wrist Wrist circumference (in cm)
+* Thigh Thigh circumference (in cm)
+* Calf Calf circumference (in cm)
+* Age Age at the time of the survey (in years)
+* Weight Body weight (in kg)
+* Sex Sex (‘m’ for males, ‘f’ for females)
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+#### Tasks:
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+1. Determine a linear regression model that explains the body height based on all
+other given variables.
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+2. Find the ‘best’ set of explanatory variables for the body height using Best Subset
+Selection. Use the Akaike Information Criterion (AIC) and the Bayesian Information
+Criterion (BIC) as the selection criteria. Compare the included variables of the two
+resulting ‘best’ models.
+
+3. Estimate the ‘best’ linear model for the dependent variable w.r.t. the BIC from
+Task 2. Interpret the coefficients of the model and their statistical significance,
+provide confidence intervals for the regression parameters and evaluate the goodness
+of fit.
