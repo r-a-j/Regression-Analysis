@@ -1,19 +1,21 @@
-The dataset bodymeasurements.csv contains body measurements of 424 persons aged between 18 to 40 years old, which were collected in a study. The aim of the study was to determine a model that can be used to explain the body height. The following variables have been collected:
+#### **Information on dataset**:
 
-* Height Body height (in cm)
-* Chest Chest circumference (in cm)
-* Belly Belly circumference (in cm)
-* Biceps Biceps circumference (in cm)
-* Knee Knee circumference (in cm)
-* Ankle Ankle circumference (in cm)
-* Wrist Wrist circumference (in cm)
-* Thigh Thigh circumference (in cm)
-* Calf Calf circumference (in cm)
-* Age Age at the time of the survey (in years)
-* Weight Body weight (in kg)
-* Sex Sex (‘m’ for males, ‘f’ for females)
+The dataset ***bodymeasurements.csv*** contains body measurements of 424 persons aged between 18 to 40 years old, which were collected in a study. The aim of the study was to determine a model that can be used to explain the body height. The following variables have been collected:
 
-#### Tasks:
+* **Height**: Body height (in cm)
+* **Chest**: Chest circumference (in cm)
+* **Belly**: Belly circumference (in cm)
+* **Biceps**: Biceps circumference (in cm)
+* **Knee**: Knee circumference (in cm)
+* **Ankle**: Ankle circumference (in cm)
+* **Wrist**: Wrist circumference (in cm)
+* **Thigh**: Thigh circumference (in cm)
+* **Calf**: Calf circumference (in cm)
+* **Age**: Age at the time of the survey (in years)
+* **Weight**: Body weight (in kg)
+* **Sex**: Sex (‘m’ for males, ‘f’ for females)
+
+#### **Tasks**:
 
 1. Determine a linear regression model that explains the body height based on all
 other given variables.
