@@ -1,14 +1,6 @@
 ## Project - 3 
 (Winter Semester 2022 - 2023)\
-Regression Analysis\
-Author - Raj Anilbhai Pawar\
-Matriculation Number - 231811\
-Group - 17\
-Raj Anilbhai Pawar\
-Amritha Sukhdev Singh Agarwal\
-Sagar Basnet\
-Muhammad Fahad\
-Siddhartha Kark
+Regression Analysis
 
 
 ```python
