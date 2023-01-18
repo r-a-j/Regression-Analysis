@@ -19,7 +19,10 @@ library(broom)
 library(MASS)
 ```
 
-### Tasks 1: Data preparation
+## Question 1:
+### Determine a linear regression model that explains the body height based on all other given variables.
+
+### Data preparation
 ```{r}
 bodymeasurements <- read_csv("bodymeasurements.csv", TRUE)
 #View(bodymeasurements)
@@ -31,7 +34,7 @@ bodymeasurements <- as.data.frame(bodymeasurements)
 #bodymeasurements
 ```
 
-# Check for missing values
+### Check for missing values
 ```{r}
 sum(is.na(bodymeasurements)) 
 #0 missing values
@@ -62,16 +65,15 @@ ggplot(fit_model_res, aes(x = .fitted, y =.resid))+geom_point()+ geom_hline(yint
   xlab('Fitted values')+ylab('Residuals')+theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5)) + ggtitle('Residuals vs Fitted: Price')
 ```
 
-# Q-Q plot
+### Q-Q plot
 ```{r}
-ggplot(data = fit_model_res, aes(sample= .std.resid)) +stat_qq() + stat_qq_line(col = 'red')+ylab('Standardized residuals')+xlab('Theoretical Quantiles')+ggtitle('Normal Q-Q: Height')+
-  theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5))
+ggplot(data = fit_model_res, aes(sample= .std.resid)) +stat_qq() + stat_qq_line(col = 'red')+ylab('Standardized residuals')+xlab('Theoretical Quantiles')+ggtitle('Normal Q-Q: Height')+theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5))
 ```
 
+## Question 2:
+### Find the ‘best’ set of explanatory variables for the body height using Best Subset Selection. Use the Akaike Information Criterion (AIC) and the Bayesian Information Criterion (BIC) as the selection criteria. Compare the included variables of the two resulting ‘best’ models.
 
-##Question2
-# Make categorical variables as factors
-
+### Make categorical variables as factors
 ```{r}
 #models <- regsubsets(Height~., data = bodymeasurements, nvmax = NULL)
 #summary(models)
@@ -103,19 +105,18 @@ bodymeasurements_subset <- bodymeasurements_subset[, col_order]
 summary(bodymeasurements_subset)
 ```
 
-#model6 for BIC
+### Model-6 for BIC
 ```{r}
 #best_subsets_BIC %>% filter(BIC == min(ols_step_best_subset$))
 ```
 
-#model8 for AIC
-
+### Model-8 for AIC
 ```{r}
 modelFull <- lm(Height ~ ., data = bodymeasurements_subset) #model with all variables
 summary(modelFull)
 ```
 
-# Best explanatory variables using BIC
+### Best explanatory variables using BIC
 ```{r}
 #bestglm(bodymeasurements_subset, IC = "BIC") # outputs the set
 ```
@@ -124,52 +125,55 @@ summary(modelFull)
 model1 <- lm(Height ~  Sex + Belly + Thigh + Calf + Biceps + Weight, data = bodymeasurements_subset)
 ```
 
-# Best explanatory variables using AIC
+### Best explanatory variables using AIC
 ```{r}
 #bestglm(bodymeasurements_subset, IC = "AIC")
 
-model2 <- lm(Height ~  Chest + Sex + Belly + Thigh + Calf + Biceps + Wrist +
-               Weight, data = bodymeasurements_subset)
+model2 <- lm(Height ~  Chest + Sex + Belly + Thigh + Calf + Biceps + Wrist + Weight, data = bodymeasurements_subset)
 
 ```
 
-# Verify the models created from the subset selections
+### Verify the models created from the subset selections
 ```{r}
 AIC(modelFull, model1, model2) # 
 BIC(modelFull, model1, model2) # 
 ```
 
-#2-3. Estimate the "best?" linear model for the dependent variable w.r.t. the BIC from ii.
+## Question 3:
+### Estimate the ‘best’ linear model for the dependent variable w.r.t. the BIC from Task 2. Interpret the coefficients of the model and their statistical significance, provide confidence intervals for the regression parameters and evaluate the goodness of fit.
 
-# through BIC(); model1 is the best linear model
+### Through BIC Model-1 is the best linear model
 ```{r}
 summary(model1)
 ```
 
-# Assumptions to check for the BIC Model
+### Assumptions to check for the BIC Model
 ```{r}
 model1_res = augment(model1)
 ```
 
-# Residuals vs fitted plot
+### Residuals vs fitted plot
 ```{r}
 ggplot(model1_res, aes(x = .fitted, y =.resid))+geom_point()+ geom_hline(yintercept = 0)+
   xlab('Fitted values')+ylab('Residuals')+theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5)) + ggtitle('Residuals vs Fitted') +  labs(subtitle = "Estimating through best BIC model")
 ```
 
-# Q-Q plot
+### Q-Q plot
 ```{r}
-ggplot(data = model1_res, aes(sample= .std.resid)) +stat_qq() + stat_qq_line(col = 'red')+ylab('Standardized residuals')+xlab('Theoretical Quantiles')+ggtitle('Normal Q-Q')+
-  theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5)) + labs(subtitle = "Estimating through best BIC model")
+ggplot(data = model1_res, aes(sample= .std.resid)) +stat_qq() + stat_qq_line(col = 'red')+ylab('Standardized residuals')+xlab('Theoretical Quantiles')+ggtitle('Normal Q-Q')+theme(axis.text=element_text(size=16), axis.title=element_text(size=16), plot.title = element_text(hjust = 0.5)) + labs(subtitle = "Estimating through best BIC model")
 ```
 
-# estimating 95% confidence interval for estimated regression coefficients
+### Estimating 95% confidence interval for estimated regression coefficients
 ```{r}
-confint(model1, level = 0.95) # estimating confidence interval for estimated regression coefficients
+confint(model1, level = 0.95) 
+```
+
+### Estimating confidence interval for estimated regression coefficients
+```{r}
 round(confint(model1, level = 0.95), 2)
 ```
 
-#goodness of fit: R2
+### Goodness of fit: R2
 ```{r}
 R2 <- summary(model1)[["r.squared"]]
 R2
