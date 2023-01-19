@@ -1,6 +1,6 @@
 ---
-title: "Project3"
-author: "Raj Pawar"
+title: "Project 3: Regression Analysis"
+author: "XXXX"
 date: "`r Sys.Date()`"
 output: html_document
 ---
@@ -30,14 +30,32 @@ bodymeasurements <- read_csv("bodymeasurements.csv", TRUE)
 
 ```{r}
 summary(bodymeasurements)
+```
+
+
+### Compute Sstandard Deviation
+```{r}
+sd(as.numeric(unlist(bodymeasurements["Height"])))
+sd(as.numeric(unlist(bodymeasurements["Chest"])))
+sd(as.numeric(unlist(bodymeasurements["Belly"])))
+sd(as.numeric(unlist(bodymeasurements["Biceps"])))
+sd(as.numeric(unlist(bodymeasurements["Knee"])))
+sd(as.numeric(unlist(bodymeasurements["Ankle"])))
+sd(as.numeric(unlist(bodymeasurements["Wrist"])))
+sd(as.numeric(unlist(bodymeasurements["Thigh"])))
+sd(as.numeric(unlist(bodymeasurements["Calf"])))
+sd(as.numeric(unlist(bodymeasurements["Age"])))
+sd(as.numeric(unlist(bodymeasurements["Weight"])))
+```
+
+```{r}
 bodymeasurements <- as.data.frame(bodymeasurements)
 #bodymeasurements
 ```
 
-### Check for missing values
+### Check for missing values count
 ```{r}
-sum(is.na(bodymeasurements)) 
-#0 missing values
+sum(is.na(bodymeasurements))
 ```
 
 ```{r}

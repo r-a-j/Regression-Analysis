@@ -9,11 +9,11 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Raj Pawar" />
+<meta name="author" content="XXXX" />
 
-<meta name="date" content="2023-01-18" />
+<meta name="date" content="2023-01-19" />
 
-<title>Project3</title>
+<title>Project 3: Regression Analysis</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,9 +350,9 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Project3</h1>
-<h4 class="author">Raj Pawar</h4>
-<h4 class="date">2023-01-18</h4>
+<h1 class="title toc-ignore">Project 3: Regression Analysis</h1>
+<h4 class="author">XXXX</h4>
+<h4 class="date">2023-01-19</h4>
 
 </div>
 
@@ -414,14 +414,38 @@ based on all other given variables.</h3>
 ##  Mean   : 67.82  
 ##  3rd Qu.: 75.62  
 ##  Max.   :105.20</code></pre>
+</div>
+<div id="compute-sstandard-deviation" class="section level3">
+<h3>Compute Sstandard Deviation</h3>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Height&quot;])))</code></pre>
+<pre><code>## [1] 9.397658</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Chest&quot;])))</code></pre>
+<pre><code>## [1] 9.600351</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Belly&quot;])))</code></pre>
+<pre><code>## [1] 9.903932</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Biceps&quot;])))</code></pre>
+<pre><code>## [1] 4.267049</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Knee&quot;])))</code></pre>
+<pre><code>## [1] 2.543892</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Ankle&quot;])))</code></pre>
+<pre><code>## [1] 1.847268</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Wrist&quot;])))</code></pre>
+<pre><code>## [1] 1.351132</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Thigh&quot;])))</code></pre>
+<pre><code>## [1] 4.431323</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Calf&quot;])))</code></pre>
+<pre><code>## [1] 2.755578</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Age&quot;])))</code></pre>
+<pre><code>## [1] 5.848649</code></pre>
+<pre class="r"><code>sd(as.numeric(unlist(bodymeasurements[&quot;Weight&quot;])))</code></pre>
+<pre><code>## [1] 12.73903</code></pre>
 <pre class="r"><code>bodymeasurements &lt;- as.data.frame(bodymeasurements)
 #bodymeasurements</code></pre>
 </div>
-<div id="check-for-missing-values" class="section level3">
-<h3>Check for missing values</h3>
-<pre class="r"><code>sum(is.na(bodymeasurements)) </code></pre>
+<div id="check-for-missing-values-count" class="section level3">
+<h3>Check for missing values count</h3>
+<pre class="r"><code>sum(is.na(bodymeasurements))</code></pre>
 <pre><code>## [1] 0</code></pre>
-<pre class="r"><code>#0 missing values</code></pre>
 <pre class="r"><code>drops &lt;- c(&quot;ID&quot;)
 bodymeasurements &lt;- bodymeasurements[ , !(names(bodymeasurements) %in% drops)]</code></pre>
 <pre class="r"><code>#bodymeasurements$Weight &lt;- bodymeasurements$Weight/100
