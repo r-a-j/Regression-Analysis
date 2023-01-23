@@ -57,6 +57,11 @@ bodymeasurements <- as.data.frame(bodymeasurements)
 ```{r}
 sum(is.na(bodymeasurements))
 ```
+### Check male female count
+```{r}
+sum(bodymeasurements$Sex=='m')
+sum(bodymeasurements$Sex=='f')
+```
 
 ```{r}
 drops <- c("ID")
