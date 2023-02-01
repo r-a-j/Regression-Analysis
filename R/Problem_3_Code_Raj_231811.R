@@ -1,6 +1,11 @@
 # Clear memory
 rm(list = ls())
 
+# Install packages if not present
+list.of.packages <- c("readr", "ggplot2","olsrr","broom","ggpubr")
+new.packages <- list.of.packages[!(list.of.packages %in% installed.packages()[,"Package"])]
+if(length(new.packages)) install.packages(new.packages)
+
 library(readr)
 library(ggplot2)
 library(olsrr)
